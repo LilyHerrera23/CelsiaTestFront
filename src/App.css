@@ -15,4 +15,6 @@
   display: grid;
   grid-area: loads;
   align-content: center;
+  position: relative;
+  row-gap: 10pt;
 }

@@ -4,30 +4,49 @@ import { arrUser } from "../../config/config";
 import { FieldUniversal } from "../Zhad@Company/fieldUniversal/componentFields/FieldUniversal";
 import { Button } from "../Zhad@Company/fieldUniversal/componentFields/components/Button";
 
+const formUser = {};
+
 const FormUser = (props) => {
   const newObj = arrUser.filter((item) => item.VISIBLE);
-  const [formUser, setformUser] = useState(null);
 
-  const createUser = () => {};
+  const createUser = () => {
+    const dataSave = {};
 
-  useEffect(() => {
-    allUser();
+    for (const key in formUser) {
+      debugger;
+      if (!formUser[key].isValid) {
+        console.log("FALTAN CAMPOS POR DILIGENCIAR");
+        return;
+      } else {
+        dataSave[key] = formUser[key].value;
+      }
+    }
 
-    debugger;
-  }, []);
+    dataSave["birthDate"] = "1998-03-12";
 
-  const allUser = async () => {
-    let url = "http://127.0.0.1:8080/user/allUser";
-    let response = await fetch(url);
-    let commits = await response.json();
-    setformUser(commits);
-    // console.log(commits);
+    //url para guardar la data
+    fetch("http://127.0.0.1:8080/CustomerController/saveCustomer", {
+    //  mode: "no-cors",
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataSave),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.error(error));
   };
 
   const getValueField = (id, value, isValid, textField) => {
-    /*  console.log(
-        `id: ${id} || value: ${value} || isValid: ${isValid} || textField: ${textField}`
-      ); */
+    /* console.log(
+      `id: ${id} || value: ${value} || isValid: ${isValid} || textField: ${textField}`
+    ); */
+
+    formUser[id] = { id, value, isValid: value !== "" ? true : false };
   };
 
   const onCreateFrg = (value) => {

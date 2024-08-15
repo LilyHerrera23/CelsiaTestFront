@@ -1,7 +1,7 @@
 const arrUser = [
   {
     KEY: "1",
-    ID: "TYPE",
+    ID: "identificationType",
     POSITION: "1",
     LABEL: "Tipo de identificacion",
     NAME: "TYPE",
@@ -22,7 +22,7 @@ const arrUser = [
   },
   {
     KEY: "2",
-    ID: "Identificacion",
+    ID: "identification",
     POSITION: "2",
     LABEL: "Identificacion",
     NAME: "Identificacion",
@@ -38,7 +38,7 @@ const arrUser = [
   },
   {
     KEY: "3",
-    ID: "nombres",
+    ID: "name",
     POSITION: "3",
     LABEL: "nombres",
     NAME: "nombres",
@@ -54,7 +54,7 @@ const arrUser = [
   },
   {
     KEY: "4",
-    ID: "apellidos",
+    ID: "lastName",
     POSITION: "4",
     LABEL: "apellidos",
     NAME: "apellidos",
@@ -70,7 +70,7 @@ const arrUser = [
   },
   {
     KEY: "5",
-    ID: "numeroCelular",
+    ID: "phoneNumber",
     POSITION: "5",
     LABEL: "Numero de Celular",
     NAME: "numeroCelular",
@@ -86,7 +86,7 @@ const arrUser = [
   },
   {
     KEY: "6",
-    ID: "correo",
+    ID: "email",
     POSITION: "6",
     LABEL: "Correo electronico",
     NAME: "correo",
